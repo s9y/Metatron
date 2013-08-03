@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="bootstrap.php"
+         backupGlobals="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         colors="false">
+    <php>
+        <const name="IN_serendipity" value="true"/>
+        <const name="IS_installed" value="true"/>
+        <const name="USERLEVEL_ADMIN" value="255"/>
+        <const name="USERLEVEL_CHIEF" value="1"/>
+        <const name="USERLEVEL_EDITOR" value="0"/>
+        <const name="DB_DSN" value="sqlite:dbname=s9y_test;host=localhost" />
+        <const name="DB_HOST" value="localhost" />
+        <const name="DB_TYPE" value="mysqli" />
+        <const name="DB_USER" value="s9y_test" />
+        <const name="DB_PASSWD" value="s9y_test" />
+        <const name="DB_DBNAME" value="s9y_test" />
+        <const name="TEST_DB" value="test.db" />
+    </php>
+</phpunit>

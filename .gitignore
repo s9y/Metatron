@@ -5,3 +5,4 @@ DEADJOE
 /.project
 .DS_Store
 .editorconfig
+/vendor

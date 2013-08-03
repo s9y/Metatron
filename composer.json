@@ -1,0 +1,13 @@
+{
+    "require": {
+        "symfony/console": "v2.3.2",
+        "symfony/finder": "v2.3.2",
+        "symfony/filesystem": "v2.3.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Serendipity": "src",
+            "Composer": "src"
+        }
+    }
+}
