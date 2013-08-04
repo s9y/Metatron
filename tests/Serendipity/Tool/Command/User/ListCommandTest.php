@@ -55,7 +55,7 @@ class ListCommandTest extends AbstractTest
         $command = $application->find('user:list');
         $commandTester = new CommandTester($command);
         $commandTester->execute(array('command' => $command->getName()));
-        $this->assertRegExp('/| 1  | johndoe  | John Doe  | john.doe@example.com | Chief editor |/', $commandTester->getDisplay());
+        $this->assertRegExp('/\| 1  \| johndoe  \| John Doe  \| john.doe@example.com \| Chief editor \|/', $commandTester->getDisplay());
     }
 
     /**
@@ -68,7 +68,7 @@ class ListCommandTest extends AbstractTest
         $command = $application->find('user:list');
         $commandTester = new CommandTester($command);
         $commandTester->execute(array('command' => $command->getName(), 'username' => 'johndoe'));
-        $this->assertRegExp('/| 1  | johndoe  | John Doe  | john.doe@example.com | Chief editor |/', $commandTester->getDisplay());
+        $this->assertRegExp('/\| 1  \| johndoe  \| John Doe  \| john.doe@example.com \| Chief editor \|/', $commandTester->getDisplay());
     }
 
     /**
@@ -81,6 +81,6 @@ class ListCommandTest extends AbstractTest
         $command = $application->find('user:list');
         $commandTester = new CommandTester($command);
         $commandTester->execute(array('command' => $command->getName(), 'username' => 11));
-        $this->assertRegExp('/| 11  | johndoe  | John Doe  | john.doe@example.com | Chief editor |/', $commandTester->getDisplay());
+        $this->assertRegExp('/\| 11 \| johndoe  \| John Doe  \| john.doe@example.com \| Chief editor \|/', $commandTester->getDisplay());
     }
 }
