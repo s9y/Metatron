@@ -95,7 +95,7 @@ class PasswordCommandTest extends AbstractTest
 
         $commandTester = new CommandTester($command);
         $commandTester->execute(array('command' => $command->getName(), 'username' => 11));
-        $this->assertRegExp('/| 11  | johndoe  | John Doe  | john.doe@example.com | Chief editor |/', $commandTester->getDisplay());
+        $this->assertRegExp('/New password set for user "johndoe"/', $commandTester->getDisplay());
     }
 
     /**
