@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Phing build file to create the phar file.
+
+@see http://www.phing.info/
+
+Build phar with:
+
+    phing dist
+-->
+<project name="Metatron" default="dist">
+    <fileset dir="." id="root">
+        <include name="console.php"/>
+    </fileset>
+    <fileset dir="src" id="src">
+        <include name="**/**"/>
+    </fileset>
+    <fileset dir="vendor" id="vendor">
+        <include name="**/**"/>
+        <exclude name=".git/**"/>
+        <exclude name=".svn/**"/>
+        <exclude name="**/Tests/**"/>
+        <exclude name="**/tests/**"/>
+        <exclude name="**/doc/**"/>
+        <exclude name="**/docs/**"/>
+    </fileset>
+    <target name="dist">
+        <pharpackage destfile="./metatron.phar" basedir="./" clistub="console.php" compression="bzip2">
+            <metadata>
+                <element name="version" value="1.0"/>
+                <element name="authors">
+                    <element name="Matthias Gutjahr">
+                        <element name="e-mail" value="mail@matthias-gutjahr.de"/>
+                    </element>
+                </element>
+            </metadata>
+            <fileset refid="root"/>
+            <fileset refid="src"/>
+            <fileset refid="vendor"/>
+        </pharpackage>
+        <exec command="git config core.filemode true" />
+        <exec command="git update-index --chmod=+x metatron.phar" />
+        <chmod file="./metatron.phar" mode="775" />
+        <exec command="git add ./metatron.phar" />
+    </target>
+</project>
