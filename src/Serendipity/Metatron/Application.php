@@ -6,8 +6,10 @@ use Serendipity\Metatron\Command\Cache\FlushCommand;
 use Serendipity\Metatron\Command\Diag\ConfigCommand;
 use Serendipity\Metatron\Command\Diag\InfoCommand;
 use Serendipity\Metatron\Command\Diag\VersionCommand;
-use Serendipity\Metatron\Command\User\ListCommand;
+use Serendipity\Metatron\Command\SelfUpdateCommand;
+use Serendipity\Metatron\Command\User\ListCommand as UserListCommand;
 use Serendipity\Metatron\Command\User\PasswordCommand;
+use Serendipity\Metatron\Command\Comment\ListCommand as CommentListCommand;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -26,7 +28,7 @@ class Application extends BaseApplication
     /**
      * Application version
      */
-    const APP_VERSION = '0.1.0';
+    const APP_VERSION = '0.1.1';
 
     /**
      * @var null
@@ -82,8 +84,10 @@ class Application extends BaseApplication
         $this->add(new InfoCommand());
         $this->add(new ConfigCommand());
         $this->add(new FlushCommand());
-        $this->add(new ListCommand());
+        $this->add(new UserListCommand());
         $this->add(new PasswordCommand());
+        $this->add(new CommentListCommand());
+        $this->add(new SelfUpdateCommand());
     }
 
     /**

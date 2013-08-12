@@ -1,0 +1,53 @@
+<?php
+
+require_once(S9Y_INCLUDE_PATH . 'metatron/tests/AbstractTest.php');
+
+use Serendipity\Metatron\Application;
+use Serendipity\Metatron\Command\Comment\ListCommand;
+use Symfony\Component\Console\Tester\CommandTester;
+
+/**
+ * Class ListCommandTest
+ */
+class ListCommandTest extends AbstractTest
+{
+    /**
+     * Set up
+     */
+    public function setUp()
+    {
+        Patchwork\replace("serendipity_db_query", function() {
+            return array(
+                array(
+                    'id' => '3',
+                    'entry_id' => '2',
+                    'parent_id' => '0',
+                    'timestamp' => '1374401343',
+                    'title' => 'Blog Entry Title',
+                    'author' => 'John Doe',
+                    'email' => 'john.doe@example.com',
+                    'url' => '',
+                    'ip' => '127.0.0.1',
+                    'body' => 'This is a comment',
+                    'type' => 'NORMAL',
+                    'subscribed' => 'false',
+                    'status' => 'approved',
+                    'referer' => 'http://s9y2.local/serendipity_admin.php',
+                ),
+            );
+        });
+    }
+
+    /**
+     * @covers ListCommand::execute
+     */
+    public function testExecute()
+    {
+        $application = new Application();
+        $application->add(new ListCommand());
+        $command = $application->find('comment:list');
+        $commandTester = new CommandTester($command);
+        $commandTester->execute(array('command' => $command->getName()));
+        $this->assertRegExp('/\| 3  \| Blog Entry Title \| Jul 21 2013, 12:09 \| John Doe \| john.doe@example.com \| This is a comment \| NORMAL \| approved \|/', $commandTester->getDisplay());
+    }
+}

@@ -27,7 +27,7 @@ require_once S9Y_INCLUDE_PATH . 'include/functions_config.inc.php';
 require_once S9Y_INCLUDE_PATH . 'include/functions_permalinks.inc.php';
 require_once S9Y_INCLUDE_PATH . 'include/functions.inc.php';
 require_once S9Y_INCLUDE_PATH . 'include/db/db.inc.php';
-require_once S9Y_INCLUDE_PATH . 'include/db/' . DB_TYPE . '.inc.php';
+//require_once S9Y_INCLUDE_PATH . 'include/db/' . DB_TYPE . '.inc.php';
 
 serendipity_initPermalinks();
 

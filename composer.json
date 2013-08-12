@@ -2,7 +2,8 @@
     "require": {
         "symfony/console": "v2.3.2",
         "symfony/finder": "v2.3.2",
-        "symfony/filesystem": "v2.3.2"
+        "symfony/filesystem": "v2.3.2",
+        "composer/composer": "dev-master"
     },
     "autoload": {
         "psr-0": {

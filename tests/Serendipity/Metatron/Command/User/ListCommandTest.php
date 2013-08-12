@@ -46,41 +46,42 @@ class ListCommandTest extends AbstractTest
     }
 
     /**
+     * @param mixed $argument
+     * @param string $expectedRegExp
+     *
      * @covers ListCommand::execute
+     * @dataProvider providerTestExecute
      */
-    public function testExecute()
+    public function testExecute($argument, $expectedRegExp)
     {
         $application = new Application();
         $application->add(new ListCommand());
         $command = $application->find('user:list');
         $commandTester = new CommandTester($command);
-        $commandTester->execute(array('command' => $command->getName()));
-        $this->assertRegExp('/\| 1  \| johndoe  \| John Doe  \| john.doe@example.com \| Chief editor \|/', $commandTester->getDisplay());
+        $commandTester->execute(array('command' => $command->getName(), 'username' => $argument));
+        $this->assertRegExp($expectedRegExp, $commandTester->getDisplay());
     }
 
     /**
-     * @covers ListCommand::execute
+     * Data provider for testExecute
+     *
+     * @return array
      */
-    public function testExecuteWithUsername()
+    public function providerTestExecute()
     {
-        $application = new Application();
-        $application->add(new ListCommand());
-        $command = $application->find('user:list');
-        $commandTester = new CommandTester($command);
-        $commandTester->execute(array('command' => $command->getName(), 'username' => 'johndoe'));
-        $this->assertRegExp('/\| 1  \| johndoe  \| John Doe  \| john.doe@example.com \| Chief editor \|/', $commandTester->getDisplay());
-    }
-
-    /**
-     * @covers ListCommand::execute
-     */
-    public function testExecuteWithUserid()
-    {
-        $application = new Application();
-        $application->add(new ListCommand());
-        $command = $application->find('user:list');
-        $commandTester = new CommandTester($command);
-        $commandTester->execute(array('command' => $command->getName(), 'username' => 11));
-        $this->assertRegExp('/\| 11 \| johndoe  \| John Doe  \| john.doe@example.com \| Chief editor \|/', $commandTester->getDisplay());
+        return array(
+            array(
+                null,
+                '/\| 1  \| johndoe  \| John Doe  \| john.doe@example.com \| Chief editor \|/',
+            ),
+            array(
+                'johndoe',
+                '/\| 1  \| johndoe  \| John Doe  \| john.doe@example.com \| Chief editor \|/',
+            ),
+            array(
+                11,
+                '/\| 11 \| johndoe  \| John Doe  \| john.doe@example.com \| Chief editor \|/',
+            ),
+        );
     }
 }

@@ -53,11 +53,19 @@ If you need help running a command, type:
 $ php metatron.phar help <command>
 ```
 
+### Keeping Metatron up to date
+
+As of version 0.1.1, Metatron is able to update itself to the latest version. Just run
+
+```bash
+$ php metatron.phar self-update
+```
+
 ### Diagnostics
 
 #### Serendipity version
 
-Prints the current S9y version
+Prints the current S9y version.
 
 ```bash
 $ php metatron.phar diag:version
@@ -104,4 +112,14 @@ Flushes cache directory. You can enter an optional cache directory (Default: tem
 
 ```bash
 $ php metatron.phar cache:flush [dir]
+```
+
+### Comments
+
+#### List comments
+
+Lists all comments, or the last X comments.
+
+```bash
+$ php metatron.phar comment:list [limit]
 ```
