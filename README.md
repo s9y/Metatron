@@ -123,3 +123,11 @@ Lists all comments, or the last X comments.
 ```bash
 $ php metatron.phar comment:list [limit]
 ```
+
+### Approve comments
+
+List and approve comments, or approve a single comment by id. This will most certainly change in future versions.
+
+```bash
+$ php metatron.phar comment:approve [commentid]
+```
