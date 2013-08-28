@@ -1,15 +1,16 @@
 <?php
 
-require_once(S9Y_INCLUDE_PATH . 'metatron/tests/AbstractTest.php');
+namespace Serendipity\Metatron\Command\User;
 
 use Serendipity\Metatron\Application;
-use Serendipity\Metatron\Command\User\PasswordCommand;
+use Serendipity\Metatron\Command\PHPUnit\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
+use Patchwork;
 
 /**
  * Class PasswordCommandTest
  */
-class PasswordCommandTest extends AbstractTest
+class PasswordCommandTest extends TestCase
 {
     /**
      * Set up

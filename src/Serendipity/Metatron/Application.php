@@ -10,6 +10,8 @@ use Serendipity\Metatron\Command\SelfUpdateCommand;
 use Serendipity\Metatron\Command\User\ListCommand as UserListCommand;
 use Serendipity\Metatron\Command\User\PasswordCommand;
 use Serendipity\Metatron\Command\Comment\ListCommand as CommentListCommand;
+use Serendipity\Metatron\Command\Comment\ApproveCommand as CommentApproveCommand;
+use Serendipity\Metatron\Command\Plugin\ListCommand as PluginListCommand;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -28,7 +30,7 @@ class Application extends BaseApplication
     /**
      * Application version
      */
-    const APP_VERSION = '0.1.1';
+    const APP_VERSION = '0.1.2';
 
     /**
      * @var null
@@ -86,8 +88,10 @@ class Application extends BaseApplication
         $this->add(new FlushCommand());
         $this->add(new UserListCommand());
         $this->add(new PasswordCommand());
-        $this->add(new CommentListCommand());
         $this->add(new SelfUpdateCommand());
+        $this->add(new PluginListCommand());
+        $this->add(new CommentListCommand());
+        $this->add(new CommentApproveCommand());
     }
 
     /**

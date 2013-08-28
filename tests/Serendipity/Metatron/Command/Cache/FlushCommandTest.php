@@ -1,15 +1,15 @@
 <?php
 
-require_once(S9Y_INCLUDE_PATH . 'metatron/tests/AbstractTest.php');
+namespace Serendipity\Metatron\Command\Cache;
 
 use Serendipity\Metatron\Application;
-use Serendipity\Metatron\Command\Cache\FlushCommand;
+use Serendipity\Metatron\Command\PHPUnit\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
  * Class FlushCommandTest
  */
-class FlushCommandTest extends AbstractTest
+class FlushCommandTest extends TestCase
 {
     /**
      * @var string

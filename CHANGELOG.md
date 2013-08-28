@@ -1,5 +1,10 @@
 # Metatron Changelog
 
+## 0.1.2
+
+* Added command for comment approval (might change in later versions)
+* Refactored unit tests
+
 ## 0.1.1
 
 * Added this Changelog.

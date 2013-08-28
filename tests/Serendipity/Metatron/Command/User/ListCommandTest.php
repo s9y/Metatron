@@ -1,15 +1,16 @@
 <?php
 
-require_once(S9Y_INCLUDE_PATH . 'metatron/tests/AbstractTest.php');
+namespace Serendipity\Metatron\Command\User;
 
 use Serendipity\Metatron\Application;
-use Serendipity\Metatron\Command\User\ListCommand;
+use Serendipity\Metatron\Command\PHPUnit\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
+use Patchwork;
 
 /**
  * Class ListCommandTest
  */
-class ListCommandTest extends AbstractTest
+class ListCommandTest extends TestCase
 {
     /**
      * Set up

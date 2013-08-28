@@ -1,15 +1,15 @@
 <?php
 
-require_once(S9Y_INCLUDE_PATH . 'metatron/tests/AbstractTest.php');
+namespace Serendipity\Metatron\Command\Diag;
 
 use Serendipity\Metatron\Application;
-use Serendipity\Metatron\Command\Diag\VersionCommand;
+use Serendipity\Metatron\Command\PHPUnit\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
  * Class VersionCommandTest
  */
-class VersionCommandTest extends AbstractTest
+class VersionCommandTest extends TestCase
 {
     /**
      * @covers VersionCommand::execute
