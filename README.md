@@ -1,6 +1,6 @@
 # Metatron – CLI tool for S9y
 
-A command line admin tool (written in PHP) for [Serendipity](http://s9y.org).
+A command line tool (written in PHP) for developers and admins of [Serendipity](http://s9y.org).
 
 ## Installation
 
@@ -25,15 +25,7 @@ curl -s https://getcomposer.org/installer | php
 php ./composer.phar install
 ```
 
-## Developers
-
-If you want to contribute to Metatron, you're invited to fork the [Repository](https://github.com/s9y/Metatron) and open a [Pull Request](https://help.github.com/articles/using-pull-requests).
-
-If you find a bug in Metatron, please [file an issue](https://github.com/s9y/Metatron/issues). Metatron is currently in an alpha state and should **not** be used on production servers! You have been warned ;)
-
-If you have any further questions, feel free to visit the [Serendipity forum](http://board.s9y.org/).
-
-## Requirements
+### Requirements
 
 Metatron has been tested on Linux and PHP 5.4.9, but should run in other environments and at least PHP 5.3.3.
 
@@ -131,3 +123,29 @@ List and approve comments, or approve a single comment by id. This will most cer
 ```bash
 $ php metatron.phar comment:approve [commentid]
 ```
+
+## Contributing
+
+If you want to contribute to Metatron, you're invited to fork the [repository](https://github.com/s9y/Metatron) and open a [Pull Request](https://help.github.com/articles/using-pull-requests).
+
+If you find a bug in Metatron, please [file an issue](https://github.com/s9y/Metatron/issues). Metatron is currently in an alpha state and should **not** be used on production servers! You have been warned ;)
+
+If you have any further questions, feel free to visit the [Serendipity forum](http://board.s9y.org/).
+
+## Testing
+
+In order to run the tests provided in the repository, from the Metatron root directory run:
+
+```bash
+phpunit --bootstrap tests/bootstrap.php --configuration tests/phpunit.xml `pwd`/tests/Serendipity/
+```
+
+You need to have [PHPUnit](https://github.com/sebastianbergmann/phpunit/) (3.7) installed.
+
+## Credits
+
+Metatron would not be possible without the [Symfony2 Console Component](http://symfony.com/doc/current/components/console/introduction.html), the [Composer](http://getcomposer.org/) dependency manager for PHP, and the [Patchwork](http://antecedent.github.io/patchwork/) library for testing user-defined functions.
+
+## License
+
+Metatron is released under the BSD License. See the bundles LICENSE file for details.

@@ -4,6 +4,7 @@
 
 * Added command for comment approval (might change in later versions)
 * Refactored unit tests
+* Added missing LICENSE
 
 ## 0.1.1
 
