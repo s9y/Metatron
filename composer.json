@@ -1,8 +1,8 @@
 {
     "require": {
-        "symfony/console": "v2.3.2",
-        "symfony/finder": "v2.3.2",
-        "symfony/filesystem": "v2.3.2",
+        "symfony/console": "v2.3.4",
+        "symfony/finder": "v2.3.4",
+        "symfony/filesystem": "v2.3.4",
         "composer/composer": "dev-master"
     },
     "autoload": {
