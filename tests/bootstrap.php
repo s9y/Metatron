@@ -7,5 +7,4 @@ if (!defined('S9Y_INCLUDE_PATH')) {
     define('S9Y_INCLUDE_PATH', dirname(__FILE__) . '/../../');
 }
 set_include_path(dirname(__FILE__) . PATH_SEPARATOR . get_include_path());
-//die(get_include_path());
-require_once(S9Y_INCLUDE_PATH . 'metatron/tests/patchwork.phar');
+require_once(S9Y_INCLUDE_PATH . 'Metatron/tests/patchwork.phar');

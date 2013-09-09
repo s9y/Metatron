@@ -36,13 +36,13 @@ Right now, there are only a few commands. Change to your Serendipity root direct
 You get a list of all available commands by entering:
 
 ```bash
-$ php metatron.phar list
+# php metatron.phar list
 ```
 
 If you need help running a command, type:
 
 ```bash
-$ php metatron.phar help <command>
+# php metatron.phar help <command>
 ```
 
 ### Keeping Metatron up to date
@@ -50,7 +50,7 @@ $ php metatron.phar help <command>
 As of version 0.1.1, Metatron is able to update itself to the latest version. Just run
 
 ```bash
-$ php metatron.phar self-update
+# php metatron.phar self-update
 ```
 
 ### Diagnostics
@@ -60,7 +60,7 @@ $ php metatron.phar self-update
 Prints the current S9y version.
 
 ```bash
-$ php metatron.phar diag:version
+# php metatron.phar diag:version
 ```
 
 #### Information about the current installation
@@ -68,7 +68,7 @@ $ php metatron.phar diag:version
 Prints basic information about the current S9y installation.
 
 ```bash
-$ php metatron.phar diag:version
+# php metatron.phar diag:version
 ```
 
 #### Retrieve config values
@@ -76,7 +76,7 @@ $ php metatron.phar diag:version
 Prints the value of one or more config keys where the optional argument `name` is the name of the config key. Setting the `search` option list all config keys that contain `name`.
 
 ```bash
-$ php metatron.phar diag:config [-s|--search] [name]
+# php metatron.phar diag:config [-s|--search] [name]
 ```
 
 ### User
@@ -86,14 +86,14 @@ $ php metatron.phar diag:config [-s|--search] [name]
 Lists all users in the system. You can enter an optional `username`.
 
 ```bash
-$ php metatron.phar user:list [username]
+# php metatron.phar user:list [username]
 ```
 #### Set new password for user
 
 Set new password for user. Opens a dialog where you must enter the user's new password twice.
 
 ```bash
-$ php metatron.phar user:password username
+# php metatron.phar user:password username
 ```
 
 ### Cache
@@ -103,7 +103,7 @@ $ php metatron.phar user:password username
 Flushes cache directory. You can enter an optional cache directory (Default: templates_c).
 
 ```bash
-$ php metatron.phar cache:flush [dir]
+# php metatron.phar cache:flush [dir]
 ```
 
 ### Comments
@@ -113,15 +113,25 @@ $ php metatron.phar cache:flush [dir]
 Lists all comments, or the last X comments.
 
 ```bash
-$ php metatron.phar comment:list [limit]
+# php metatron.phar comment:list [limit]
 ```
 
-### Approve comments
+#### Approve comments
 
 List and approve comments, or approve a single comment by id. This will most certainly change in future versions.
 
 ```bash
-$ php metatron.phar comment:approve [commentid]
+# php metatron.phar comment:approve [commentid]
+```
+
+### Plugins
+
+#### List plugins
+
+Lists installed plugins, optional types are 'event' and 'sidebar'.
+
+```bash
+# php metatron.phar plugin:list [type]
 ```
 
 ## Contributing

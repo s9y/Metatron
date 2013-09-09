@@ -1,5 +1,9 @@
 # Metatron Changelog
 
+## 0.1.3
+
+* Added plugin:list command
+
 ## 0.1.2
 
 * Added command for comment approval (might change in later versions)

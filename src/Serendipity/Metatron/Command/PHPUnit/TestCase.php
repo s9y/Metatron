@@ -2,6 +2,8 @@
 
 namespace Serendipity\Metatron\Command\PHPUnit;
 
+use Patchwork;
+
 global $serendipity;
 
 $serendipity['versionInstalled']    = '1.7';
@@ -54,5 +56,6 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
+        Patchwork\undoAll();
     }
 }
