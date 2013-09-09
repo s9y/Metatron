@@ -128,6 +128,12 @@ $ php metatron.phar comment:approve [commentid]
 
 If you want to contribute to Metatron, you're invited to fork the [repository](https://github.com/s9y/Metatron) and open a [Pull Request](https://help.github.com/articles/using-pull-requests).
 
+* Make sure you have [Composer](http://getcomposer.org/) and [Phing](http://www.phing.info/) installed
+* Clone the repository into the Serendipity web root, e.g. `git clone https://github.com/s9y/Metatron.git`
+* Next, `cd Metatron && composer install --dev` to install the dependencies
+* You should always create a new version of the `metatron.phar` PHAR archive after you finished by simply calling `phing`
+* To run commands from the Serendipity web root, either symlink the `metatron.phar` PHAR archive or call `php Metatron/console.php [options] command [arguments]` as root
+
 If you find a bug in Metatron, please [file an issue](https://github.com/s9y/Metatron/issues). Metatron is currently in an alpha state and should **not** be used on production servers! You have been warned ;)
 
 If you have any further questions, feel free to visit the [Serendipity forum](http://board.s9y.org/).
