@@ -22,7 +22,7 @@ class FlushCommandTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->cacheDir = 'metatron/tests/data/cachedir';
+        $this->cacheDir = 'Metatron/tests/data/cachedir';
         mkdir(S9Y_INCLUDE_PATH . $this->cacheDir);
         touch(S9Y_INCLUDE_PATH . $this->cacheDir . '/foo.php');
         touch(S9Y_INCLUDE_PATH . $this->cacheDir . '/bar.php');
