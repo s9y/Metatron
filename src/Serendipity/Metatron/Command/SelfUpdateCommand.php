@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class SelfUpdateCommand
  * @package Serendipity\Metatron\Command
  */
-class SelfUpdateCommand extends AbstractCommand
+class SelfUpdateCommand extends CommonCommand
 {
     /**
      * Configure

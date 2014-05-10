@@ -2,14 +2,30 @@
 
 namespace Serendipity\Metatron\Command;
 
+use Serendipity\Metatron\Model\Config;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Yaml\Dumper;
+use Symfony\Component\Yaml\Exception\ParseException;
+use Symfony\Component\Yaml\Parser;
 
 /**
- * Class AbstractCommand
+ * Class CommonCommand
  * @package Serendipity\Metatron\Command
  */
-class AbstractCommand extends Command
+class CommonCommand extends Command
 {
+    /**
+     * @var Config
+     */
+    protected $config = array();
+
+    /**
+     * @param null $name
+     */
+    public function __construct($name = null)
+    {
+        parent::__construct($name);
+    }
 
     /**
      * @param string $lang

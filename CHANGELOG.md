@@ -1,8 +1,14 @@
 # Metatron Changelog
 
-## 0.1.3
+## 0.2.0
 
-* Added plugin:list command
+* Added config file metatron_config.yml
+* Added config:set command to set config values
+* Added config model
+* Added plugin:list command to list installed plugins
+* Added backup:db:dump command to create a database dump
+* Added exception(s) specific to Metatron
+* Updated Symfony2 to v2.4.2
 
 ## 0.1.2
 

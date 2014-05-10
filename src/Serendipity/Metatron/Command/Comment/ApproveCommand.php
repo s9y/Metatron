@@ -2,7 +2,7 @@
 
 namespace Serendipity\Metatron\Command\Comment;
 
-use Serendipity\Metatron\Command\AbstractCommand;
+use Serendipity\Metatron\Command\CommonCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class ApproveCommand
  * @package Serendipity\Metatron\Command\Comment
  */
-class ApproveCommand extends AbstractCommand
+class ApproveCommand extends CommonCommand
 {
     /**
      * @return void

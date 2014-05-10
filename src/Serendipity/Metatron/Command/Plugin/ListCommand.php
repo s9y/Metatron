@@ -4,7 +4,7 @@ namespace Serendipity\Metatron\Command\Plugin;
 
 require_once(S9Y_INCLUDE_PATH . 'include/plugin_api.inc.php');
 
-use Serendipity\Metatron\Command\AbstractCommand;
+use Serendipity\Metatron\Command\CommonCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class ListCommand
  * @package Serendipity\Metatron\Command\Plugin
  */
-class ListCommand extends AbstractCommand
+class ListCommand extends CommonCommand
 {
     /**
      * @return void

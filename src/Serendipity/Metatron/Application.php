@@ -2,7 +2,9 @@
 
 namespace Serendipity\Metatron;
 
+use Serendipity\Metatron\Command\Backup\Db\DumpCommand;
 use Serendipity\Metatron\Command\Cache\FlushCommand;
+use Serendipity\Metatron\Command\Config\SetCommand;
 use Serendipity\Metatron\Command\Diag\ConfigCommand;
 use Serendipity\Metatron\Command\Diag\InfoCommand;
 use Serendipity\Metatron\Command\Diag\VersionCommand;
@@ -12,6 +14,7 @@ use Serendipity\Metatron\Command\User\PasswordCommand;
 use Serendipity\Metatron\Command\Comment\ListCommand as CommentListCommand;
 use Serendipity\Metatron\Command\Comment\ApproveCommand as CommentApproveCommand;
 use Serendipity\Metatron\Command\Plugin\ListCommand as PluginListCommand;
+use Serendipity\Metatron\Model\Config;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -38,27 +41,43 @@ class Application extends BaseApplication
     protected $autoloader;
 
     /**
+     * Serendipity configuration
+     *
      * @var array
      */
     protected $serendipity;
 
     /**
+     * Metatron configuration
+     *
+     * @var Config
+     */
+    protected $metatronConfig;
+
+    /**
+     * @param Config $config
      * @param null $autoloader
      */
-    public function __construct($autoloader = null)
+    public function __construct(Config $config, $autoloader = null)
     {
+        $this->metatronConfig = $config;
         $this->autoloader = $autoloader;
         parent::__construct(self::APP_NAME, self::APP_VERSION);
         $this->loadConfig();
     }
 
     /**
+     * @todo get rid of global $s9y that has been introduced for testing purposes
      * @return void
      */
     protected function loadConfig()
     {
-        global $serendipity;
-        $this->serendipity = $serendipity;
+        global $serendipity, $s9y;
+        if (is_array($s9y)) {
+            $this->serendipity = array_merge($serendipity, $s9y);
+        } else {
+            $this->serendipity = $serendipity;
+        }
     }
 
     /**
@@ -92,6 +111,8 @@ class Application extends BaseApplication
         $this->add(new PluginListCommand());
         $this->add(new CommentListCommand());
         $this->add(new CommentApproveCommand());
+        $this->add(new DumpCommand());
+        $this->add(new SetCommand());
     }
 
     /**
@@ -121,5 +142,21 @@ class Application extends BaseApplication
     public function setConfig($key, $value)
     {
         $this->serendipity[$key] = $value;
+    }
+
+    /**
+     * @param \Serendipity\Metatron\Model\Config $metatronConfig
+     */
+    public function setMetatronConfig($metatronConfig)
+    {
+        $this->metatronConfig = $metatronConfig;
+    }
+
+    /**
+     * @return \Serendipity\Metatron\Model\Config
+     */
+    public function getMetatronConfig()
+    {
+        return $this->metatronConfig;
     }
 }

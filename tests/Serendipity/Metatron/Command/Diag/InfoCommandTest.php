@@ -4,6 +4,7 @@ namespace Serendipity\Metatron\Command\Diag;
 
 use Serendipity\Metatron\Application;
 use Serendipity\Metatron\Command\PHPUnit\TestCase;
+use Serendipity\Metatron\Model\Config;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
@@ -16,7 +17,8 @@ class InfoCommandTest extends TestCase
      */
     public function testExecute()
     {
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->setConfig('versionInstalled', '2.0-alpha1');
         $application->setConfig('blogTitle', 'Metatron Blog');
         $application->setConfig('template', '2k11');

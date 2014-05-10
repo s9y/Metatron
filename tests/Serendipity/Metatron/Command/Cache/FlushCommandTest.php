@@ -4,6 +4,7 @@ namespace Serendipity\Metatron\Command\Cache;
 
 use Serendipity\Metatron\Application;
 use Serendipity\Metatron\Command\PHPUnit\TestCase;
+use Serendipity\Metatron\Model\Config;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**
@@ -52,7 +53,8 @@ class FlushCommandTest extends TestCase
      */
     public function testExecute()
     {
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->add(new FlushCommand());
 
         $command = $application->find('cache:flush');

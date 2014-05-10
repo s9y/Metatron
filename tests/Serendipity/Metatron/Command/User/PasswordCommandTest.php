@@ -4,6 +4,7 @@ namespace Serendipity\Metatron\Command\User;
 
 use Serendipity\Metatron\Application;
 use Serendipity\Metatron\Command\PHPUnit\TestCase;
+use Serendipity\Metatron\Model\Config;
 use Symfony\Component\Console\Tester\CommandTester;
 use Patchwork;
 
@@ -58,7 +59,8 @@ class PasswordCommandTest extends TestCase
     public function testExecuteMissingArguments()
     {
         $this->setExpectedException('RuntimeException', 'Not enough arguments');
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->add(new PasswordCommand());
         $command = $application->find('user:password');
         $commandTester = new CommandTester($command);
@@ -72,7 +74,8 @@ class PasswordCommandTest extends TestCase
     public function testExecuteUserNotFound()
     {
         $this->setExpectedException('RuntimeException', 'User not found!');
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->add(new PasswordCommand());
         $command = $application->find('user:password');
         $commandTester = new CommandTester($command);
@@ -85,7 +88,8 @@ class PasswordCommandTest extends TestCase
      */
     public function testExecuteWithUseridAndPasswordsMatching()
     {
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->add(new PasswordCommand());
         $command = $application->find('user:password');
 
@@ -106,7 +110,8 @@ class PasswordCommandTest extends TestCase
     public function testExecuteWithUseridAndPasswordsNotMatching()
     {
         $this->setExpectedException('RuntimeException', 'Passwords do not match. Please try again.');
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->add(new PasswordCommand());
         $command = $application->find('user:password');
 

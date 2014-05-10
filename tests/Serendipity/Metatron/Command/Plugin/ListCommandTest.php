@@ -4,6 +4,7 @@ namespace Serendipity\Metatron\Command\Plugin;
 
 use Serendipity\Metatron\Application;
 use Serendipity\Metatron\Command\PHPUnit\TestCase;
+use Serendipity\Metatron\Model\Config;
 use Symfony\Component\Console\Tester\CommandTester;
 use Patchwork;
 
@@ -22,7 +23,8 @@ class ListCommandTest extends TestCase
             return $mockResult;
         });
 
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->add(new ListCommand());
         $command = $application->find('plugin:list');
         $commandTester = new CommandTester($command);
@@ -43,7 +45,8 @@ class ListCommandTest extends TestCase
             return $mockResult;
         });
 
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->add(new ListCommand());
         $command = $application->find('plugin:list');
         $commandTester = new CommandTester($command);
@@ -64,7 +67,8 @@ class ListCommandTest extends TestCase
             return $mockResult;
         });
 
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->add(new ListCommand());
         $command = $application->find('plugin:list');
         $commandTester = new CommandTester($command);

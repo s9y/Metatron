@@ -27,7 +27,7 @@ $ php ./composer.phar install
 
 ### Requirements
 
-Metatron has been tested on Linux and PHP 5.4.9, but should run in other environments and at least PHP 5.3.3.
+Metatron has been tested on Linux and PHP 5.4.9/5.5.3, but should run in other environments and at least PHP 5.3.3.
 
 ## Usage
 
@@ -71,9 +71,9 @@ Prints basic information about the current S9y installation.
 $ php metatron.phar diag:version
 ```
 
-#### Retrieve config values
+#### Retrieve S9y config values
 
-Prints the value of one or more config keys where the optional argument `name` is the name of the config key. Setting the `search` option list all config keys that contain `name`.
+Prints the value of one or more Serendipity config keys where the optional argument `name` is the name of the config key. Setting the `search` option list all config keys that contain `name`.
 
 ```bash
 $ php metatron.phar diag:config [-s|--search] [name]
@@ -134,6 +134,30 @@ Lists installed plugins, optional types are 'event' and 'sidebar'.
 $ php metatron.phar plugin:list [type]
 ```
 
+### Metatron configuration file
+
+As of version 0.2.0, Metatron will save certain settings in a configuration file `metatron_config.yml`.
+
+#### Setting config values
+
+Sets a value for a specific key.
+
+```bash
+$ php metatron.phar config:set key value
+```
+
+### Backup
+
+#### Database
+
+##### Dump database
+
+Creates a dump of the blog's database, schema only or full with data. Optionally gzipped. Requires a backup directory to be set first.
+
+```bash
+$ php metatron.phar backup:db:dump [--type[="..."]] [--gzipped]
+```
+
 ## Contributing
 
 If you want to contribute to Metatron, you're invited to fork the [repository](https://github.com/s9y/Metatron) and open a [Pull Request](https://help.github.com/articles/using-pull-requests).
@@ -141,7 +165,7 @@ If you want to contribute to Metatron, you're invited to fork the [repository](h
 * Make sure you have [Composer](http://getcomposer.org/) and [Phing](http://www.phing.info/) installed
 * Clone the repository into the Serendipity web root, e.g. `git clone https://github.com/s9y/Metatron.git`
 * Next, `cd Metatron && composer install --dev` to install the dependencies
-* You should always create a new version of the `metatron.phar` PHAR archive after you finished by simply calling `phing`
+* You should always create a new version of the `metatron.phar` PHAR archive after you finished by simply calling `phing` (make sure that `phar.readonly = Off` in your php.ini)
 * To run commands from the Serendipity web root, either symlink the `metatron.phar` PHAR archive or call `php Metatron/console.php [options] command [arguments]` as root
 
 If you find a bug in Metatron, please [file an issue](https://github.com/s9y/Metatron/issues). Metatron is currently in an alpha state and should **not** be used on production servers! You have been warned ;)

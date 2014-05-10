@@ -4,7 +4,7 @@
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
-         colors="false">
+         colors="true">
     <php>
         <const name="IN_serendipity" value="true"/>
         <const name="IS_installed" value="true"/>

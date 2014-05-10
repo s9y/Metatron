@@ -4,6 +4,7 @@ namespace Serendipity\Metatron\Command\Comment;
 
 use Serendipity\Metatron\Application;
 use Serendipity\Metatron\Command\PHPUnit\TestCase;
+use Serendipity\Metatron\Model\Config;
 use Symfony\Component\Console\Tester\CommandTester;
 use Patchwork;
 
@@ -86,7 +87,8 @@ class ApproveCommandTest extends TestCase
      */
     protected function getCommandTester($dialogReturnValue = null, $commentId = null)
     {
-        $application = new Application();
+        $config = new Config(S9Y_INCLUDE_PATH . 'Metatron/tests/Resources/config.yml');
+        $application = new Application($config);
         $application->add(new ApproveCommand());
         $command = $application->find('comment:approve');
         $commandTester = new CommandTester($command);

@@ -4,8 +4,9 @@ namespace Serendipity\Metatron\Command\PHPUnit;
 
 use Patchwork;
 
-global $serendipity;
+global $serendipity, $s9y;
 
+$serendipity = array();
 $serendipity['versionInstalled']    = '1.7';
 $serendipity['dbName']              = 'test';
 $serendipity['dbPrefix']            = 's9ytest_';
@@ -25,6 +26,7 @@ $serendipity['authorid']            = '1';
 $serendipity['authorid']            = '1';
 $serendipity['no_create']           = false;
 $serendipity['languages']           = array();
+$s9y = $serendipity;
 
 require_once S9Y_INCLUDE_PATH . 'lang/serendipity_lang_en.inc.php';
 require_once S9Y_INCLUDE_PATH . 'include/functions_config.inc.php';
@@ -33,7 +35,7 @@ require_once S9Y_INCLUDE_PATH . 'include/functions.inc.php';
 require_once S9Y_INCLUDE_PATH . 'include/db/db.inc.php';
 //require_once S9Y_INCLUDE_PATH . 'include/db/' . DB_TYPE . '.inc.php';
 
-serendipity_initPermalinks();
+//serendipity_initPermalinks();
 
 /**
  * PluginTest
@@ -48,7 +50,6 @@ class TestCase extends \PHPUnit_Framework_TestCase
         if (php_sapi_name() !== PHP_SAPI) {
             die('not allowed');
         }
-//        global $serendipity;
     }
 
     /**

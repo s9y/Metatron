@@ -2,7 +2,7 @@
 
 namespace Serendipity\Metatron\Command\Diag;
 
-use Serendipity\Metatron\Command\AbstractCommand;
+use Serendipity\Metatron\Command\CommonCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class ConfigCommand
  * @package Serendipity\Metatron\Command\Diag
  */
-class ConfigCommand extends AbstractCommand
+class ConfigCommand extends CommonCommand
 {
     /**
      * @return void
@@ -47,8 +47,8 @@ class ConfigCommand extends AbstractCommand
         $rows = array();
         if ($name) {
             if ($search) {
-                $config = $this->getApplication()->getSerendipity();
-                foreach ($config as $key => $value) {
+                $s9y = $this->getApplication()->getSerendipity();
+                foreach ($s9y as $key => $value) {
                     if (is_scalar($value) && strpos($key, $name) !== false) {
                         $rows[] = array($key, $value);
                     }
@@ -57,10 +57,10 @@ class ConfigCommand extends AbstractCommand
                 $rows[] = array($name, $this->getApplication()->getConfig($name));
             }
         } else {
-            $config = $this->getApplication()->getSerendipity();
-            foreach ($config as $key => $value) {
+            $s9y = $this->getApplication()->getSerendipity();
+            foreach ($s9y as $key => $value) {
                 if (is_scalar($value)) {
-                    unset($config[$key]);
+                    unset($s9y[$key]);
                     $rows[] = array($key, $value);
                 }
             }

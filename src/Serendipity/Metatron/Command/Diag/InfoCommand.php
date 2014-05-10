@@ -2,7 +2,7 @@
 
 namespace Serendipity\Metatron\Command\Diag;
 
-use Serendipity\Metatron\Command\AbstractCommand;
+use Serendipity\Metatron\Command\CommonCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class InfoCommand
  * @package Serendipity\Metatron\Command\Diag
  */
-class InfoCommand extends AbstractCommand
+class InfoCommand extends CommonCommand
 {
     /**
      * @return void
