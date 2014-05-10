@@ -15,19 +15,20 @@ Download the phar file to your Serendipity root directory:
 ### Install Metatron from source using Composer
 
 ```bash
-# Clone the git repository
-$ git clone https://github.com/s9y/Metatron
-
-# Download Composer
-$ curl -s https://getcomposer.org/installer | php
-
-# Use Composer to install all dependencies
-$ php ./composer.phar install
+$ git clone https://github.com/s9y/Metatron # Clone the git repository
+$ cd Metatron
+$ curl -s https://getcomposer.org/installer | php # Download Composer
+$ php ./composer.phar install # Use Composer to install all dependencies
 ```
 
 ### Requirements
 
 Metatron has been tested on Linux and PHP 5.4.9/5.5.3, but should run in other environments and at least PHP 5.3.3.
+
+If you use Suhosin, you should probably add/edit the following line to its config (e.g. /etc/php5/cli/conf.d/suhosin.ini)
+```
+suhosin.executor.include.whitelist = php phar
+```
 
 ## Usage
 
