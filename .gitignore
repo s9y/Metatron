@@ -6,3 +6,4 @@ DEADJOE
 .DS_Store
 .editorconfig
 /vendor
+/docs/_build
