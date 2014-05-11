@@ -2,6 +2,8 @@
 
 A command line tool (written in PHP) for developers and admins of [Serendipity](http://s9y.org).
 
+[Documentation now lives here](http://metatron.readthedocs.org/).
+
 ## Installation
 
 There are two ways to install Metatron.
