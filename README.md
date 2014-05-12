@@ -4,6 +4,8 @@ A command line tool (written in PHP) for developers and admins of [Serendipity](
 
 [Documentation now lives here](http://metatron.readthedocs.org/).
 
+[![Build Status](https://travis-ci.org/s9y/Metatron.svg?branch=master)](https://travis-ci.org/s9y/Metatron)
+
 ## Installation
 
 There are two ways to install Metatron.
