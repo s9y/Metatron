@@ -51,6 +51,6 @@ class ListCommandTest extends TestCase
         $command = $application->find('comment:list');
         $commandTester = new CommandTester($command);
         $commandTester->execute(array('command' => $command->getName()));
-        $this->assertRegExp('/\| 3  \| Blog Entry Title \| Jul 21 2013, 12:09 \| John Doe \| john.doe@example.com \| This is a comment \| NORMAL \| approved \|/', $commandTester->getDisplay());
+        $this->assertRegExp('/| 3  | Blog Entry Title | Jul 21 2013, 12:09 | John Doe | john.doe@example.com | This is a comment | NORMAL | approved |/', $commandTester->getDisplay());
     }
 }

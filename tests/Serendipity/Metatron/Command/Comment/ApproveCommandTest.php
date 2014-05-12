@@ -22,8 +22,8 @@ class ApproveCommandTest extends TestCase
         $this->replaceQuery(2);
         $this->replaceApproveComment(false);
         $commandTester = $this->getCommandTester(3);
-        $this->assertRegExp('/\| 3  \| Blog Entry Title \| Jul 21 2013, 12:09 \| John Doe \| john.doe@example.com \| This is a comment      \| NORMAL \| pending \|/', $commandTester->getDisplay());
-        $this->assertRegExp('/\| 5  \| Blog Entry Title \| Jul 21 2013, 12:09 \| John Doe \| john.doe@example.com \| This is a comment, too \| NORMAL \| pending \|/', $commandTester->getDisplay());
+        $this->assertRegExp('/| 3  | Blog Entry Title | Jul 21 2013, 12:09 | John Doe | john.doe@example.com | This is a comment      | NORMAL | pending |/', $commandTester->getDisplay());
+        $this->assertRegExp('/| 5  | Blog Entry Title | Jul 21 2013, 12:09 | John Doe | john.doe@example.com | This is a comment, too | NORMAL | pending |/', $commandTester->getDisplay());
     }
 
     /**
