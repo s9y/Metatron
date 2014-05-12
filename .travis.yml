@@ -1,0 +1,13 @@
+language: php
+php:
+  - 5.5
+  - 5.4
+  - 5.3
+  - hhvm
+before_script:
+  - composer install
+  - git clone https://github.com/s9y/Serendipity.git ../Serendipity && cd ../Serendipity
+  - git checkout 2.0
+  - mv ../Metatron .
+script:
+  - phpunit --bootstrap Metatron/tests/bootstrap.php --configuration Metatron/tests/phpunit.xml `pwd`/Metatron/tests/Serendipity/
