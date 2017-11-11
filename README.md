@@ -73,7 +73,7 @@ $ php metatron.phar diag:version
 Prints basic information about the current S9y installation.
 
 ```bash
-$ php metatron.phar diag:version
+$ php metatron.phar diag:info
 ```
 
 #### Retrieve S9y config values
